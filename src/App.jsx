@@ -1,28 +1,28 @@
-import './App.css'
-import {useState} from "react";
-
-function Card ({title}) {
-    const [hasLiked, setHasLiked] = useState(false)
-
-    return (
-        <div className="card">
-            <h2>{title}</h2>
-        <button onClick={() => setHasLiked(!hasLiked)}>
-            {hasLiked ? 'Liked' :'Like'}
-        </button>
-        </div>
-    )
-}
-
+import React, {useState} from 'react'
+import Search from "./components/Search.jsx";
 
 function App() {
 
+    const [searchTerm, setSearchTerm] = useState('')
+
+
+
     return (
-        <div className="card-container">
-            <h2>Functional card component</h2>
-            <Card title='Lion King'/>
-            <Card title='Avatar'/>
-        </div>
+        <main>
+            <div className="pattern" />
+
+            <div className="wrapper">
+            <header>
+                <img src="/hero.png" alt="Hero Banner"/>
+            <h1
+                className="text-3xl font-bold">
+               <span className="text-gradient">Фильмы для вас!</span>
+            </h1>
+            </header>
+
+                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            </div>
+        </main>
     )
 }
 
